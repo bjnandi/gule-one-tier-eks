@@ -13,15 +13,10 @@ AWS_CLUSTER_NAME
 DEPLOYMENT_NAME
 
 IMAGE_TAG
+
 ------------------------------------------------------------------------
 
 This README would normally document how to deploy this Dockerfile
-
-### What is this repository for? ###
-
-* Create Docker Image for Glue app using Dockerfile
-
-### How do I get set up? ###
 
 DEMO VALUES<br />
 

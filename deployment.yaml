@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: glue-demo
+    app.kubernetes.io/instance: glue-demo-instance
+    app.kubernetes.io/version: '1.0.0'
+    app.kubernetes.io/managed-by: kubectl
+  name: glue-demo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: glue-demo
+  template:
+    metadata:
+      labels:
+        app: glue-demo
+    spec:
+      containers:
+        - image: 888276918709.dkr.ecr.ap-south-1.amazonaws.com/glue-private:latest
+          imagePullPolicy: Always
+          name: glue-demo
+          ports:
+            - containerPort: 80

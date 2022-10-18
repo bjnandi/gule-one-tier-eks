@@ -1,5 +1,27 @@
 # README #
 
+1) Install AWS cli
+2) Install Eksctl 
+3) Install Kubectl
+
+4) Create Cluster
+  eksctl create cluster -f cluster.yaml
+
+5) Run
+  create_iam_role.sh
+  
+6) Run
+  eksctl create iamidentitymapping --cluster basic-cluster --arn arn:aws:iam::888276918709:role/CodeBuildKubectlRole --group system:masters --username CodeBuildKubectlRole
+
+7) Run for View  IAM 
+  kubectl get configmaps aws-auth -n kube-system -o yaml > aws-auth.yaml
+  
+8) Create Build 
+
+9) Create Pipeline
+
+################################################################################
+
 This README would normally document this Docker Build veriables
 
 AWS_DEFAULT_REGION

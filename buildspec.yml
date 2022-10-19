@@ -12,9 +12,9 @@ phases:
    # - echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
    # - source ~/.bashrc
    # - echo 'Check kubectl version'
-   #- kubectl version --short --client
+   # - kubectl version --short --client
    # - chmod +x prereqs.sh
-   #- sh prereqs.sh
+   # - sh prereqs.sh
      
      
  pre_build:

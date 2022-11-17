@@ -27,11 +27,14 @@ phases:
     - cd ..
 
     
-    - docker exec  $IMAGE_REPO_NAME ls -la
-    - docker exec  $IMAGE_REPO_NAME php artisan test
-    - docker exec  $IMAGE_REPO_NAME php artisan test --testsuite=Unit --stop-on-failure
+    #- docker exec  $IMAGE_REPO_NAME ls -la
+    #- docker exec  $IMAGE_REPO_NAME php artisan test
+    #- docker exec  $IMAGE_REPO_NAME php artisan test --testsuite=Unit --stop-on-failure
+    
+    
 
  post_build: # Push the Docker image to the ECR
   commands:
    - echo Build completed on `date`
    - echo Pushing the Docker image...
+   - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:latest

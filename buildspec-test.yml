@@ -19,10 +19,10 @@ phases:
   commands:
     - echo Build started on `date`
     - echo Building the Docker image...
-    - docker-composer build
+    - docker-composer up -d .
     - dokcer images
     - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG 
-    - docker run -itd -p 80:80 $IMAGE_REPO_NAME $IMAGE_REPO_NAME:$IMAGE_TAG 
+
     
     - docker exec  $IMAGE_REPO_NAME ls -la
     - docker exec  $IMAGE_REPO_NAME php artisan test

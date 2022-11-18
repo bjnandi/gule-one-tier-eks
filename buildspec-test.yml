@@ -24,8 +24,11 @@ phases:
     #- docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG 
    # - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG bjnandi/test:$IMAGE_TAG
     - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG 
-    - docker run -itd -p 80:80 --name 916116923608.dkr.ecr.ap-south-1.amazonaws.com/glue-private 916116923608.dkr.ecr.ap-south-1.amazonaws.com/glue-private:latest 
+    - docker images
+    - docker ps
+    - docker run -itd -p 80:80 --name $IMAGE_REPO_NAME $IMAGE_REPO_NAME 
     - pwd
+    - docker ps
     
     - docker exec -it $IMAGE_REPO_NAME sh
     - cd /

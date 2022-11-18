@@ -30,7 +30,7 @@ phases:
     - pwd
     - docker ps
     
-    - docker exec -i $IMAGE_REPO_NAME sh
+    - docker exec -it $IMAGE_REPO_NAME sh
     - cd /
     - cd /var/www/html
     

@@ -7,8 +7,8 @@ phases:
   commands:
     - mkdir cloudboost
     - cd cloudboost
-    - cp ./Entrypoint/* /cloudboost/
-    - cp ./NGINX/* /cloudboost/nginx/
+    - cp /Entrypoint/* /cloudboost/
+    - cp /NGINX/* /cloudboost/nginx/
 
     # Here we are going to install required packages for our Laravel Project
     - apt update -y

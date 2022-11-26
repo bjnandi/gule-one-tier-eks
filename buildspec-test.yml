@@ -6,10 +6,10 @@ phases:
  install:
   commands:
     - mkdir cloudboost
-    - cd cloudboost
     - cp /Entrypoint/* /cloudboost/
     - cp /NGINX/* /cloudboost/nginx/
-
+    - cd cloudboost
+    
     # Here we are going to install required packages for our Laravel Project
     - apt update -y
     - apt install lsb-release ca-certificates apt-transport-https software-properties-common curl unzip mysql-server git nginx -y --no-install-recommends

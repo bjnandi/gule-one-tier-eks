@@ -59,8 +59,18 @@ phases:
 
     # Export Port 80 to access the web app
     #- EXPOSE 80/tcp
+    
+    # Unit Test
     - php artisan test
     - composer require --dev codeception/codeception
+    
+    #Larastan Test Report
+    - composer require --dev phpstan/phpstan
+    - vendor/bin/phpstan analyse bootstrap
+    - vendor/bin/phpstan analyse public
+    - vendor/bin/phpstan analyse stubs
+    
+    
 
     # Run Scripts to start nginx, mysql, phpfpm automatically on container boot
    # - RUN ["chmod", "+x", "/cloudboost/startup.sh"]

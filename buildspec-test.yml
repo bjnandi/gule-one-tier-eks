@@ -31,10 +31,10 @@ phases:
     # Confiure Web Server. we are using nginx as our web server.
 
     #- cp /cloudboost/nginx/* /etc/nginx/sites-available/$WEB_SERVER.conf
-    - ln -s /etc/nginx/sites-available/$WEB_SERVER.conf /etc/nginx/sites-enabled/$WEB_SERVER.conf
-    - rm -rf /etc/nginx/sites-enabled/default
-    - sed -i "s/IP_ADDRESS_OR_DOMAIN/$WEB_SERVER/g" /etc/nginx/sites-enabled/$WEB_SERVER.conf
-    - sed -i "s,/var/www/html/,/var/www/html/$GIT_APP_FOLDER/public,g" /etc/nginx/sites-enabled/$WEB_SERVER.conf
+    #- ln -s /etc/nginx/sites-available/$WEB_SERVER.conf /etc/nginx/sites-enabled/$WEB_SERVER.conf
+    #- rm -rf /etc/nginx/sites-enabled/default
+    #- sed -i "s/IP_ADDRESS_OR_DOMAIN/$WEB_SERVER/g" /etc/nginx/sites-enabled/$WEB_SERVER.conf
+   # - sed -i "s,/var/www/html/,/var/www/html/$GIT_APP_FOLDER/public,g" /etc/nginx/sites-enabled/$WEB_SERVER.conf
 
     # Pull Glue Application from GitBucket
     - cd /var/www/html
@@ -58,12 +58,12 @@ phases:
     - chown -R www-data:www-data /var/www/html/$GIT_APP_FOLDER/bootstrap/cache;
 
     # Export Port 80 to access the web app
-    - EXPOSE 80/tcp
+    #- EXPOSE 80/tcp
     - curl localhost
 
     # Run Scripts to start nginx, mysql, phpfpm automatically on container boot
-    - RUN ["chmod", "+x", "/cloudboost/startup.sh"]
-    - ENTRYPOINT ["sh", "/cloudboost/startup.sh"]
+   # - RUN ["chmod", "+x", "/cloudboost/startup.sh"]
+    #- ENTRYPOINT ["sh", "/cloudboost/startup.sh"]
      
      
  pre_build:

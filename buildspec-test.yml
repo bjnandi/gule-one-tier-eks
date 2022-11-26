@@ -5,12 +5,12 @@ phases:
 
  install:
   commands:
-  #  - pwd
-   # - ls
-   # - mkdir cloudboost
-   # - cp /Entrypoint/* /cloudboost/
-    #- cp /NGINX/* /cloudboost/nginx/
-    #- cd cloudboost
+    - pwd
+    - ls
+    - mkdir cloudboost
+    - cp /Entrypoint/* /cloudboost/
+    - cp /NGINX/* /cloudboost/nginx/
+    - cd cloudboost
     
     # Here we are going to install required packages for our Laravel Project
     - apt update -y
@@ -34,7 +34,7 @@ phases:
     - ln -s /etc/nginx/sites-available/$WEB_SERVER.conf /etc/nginx/sites-enabled/$WEB_SERVER.conf
     - rm -rf /etc/nginx/sites-enabled/default
     - sed -i "s/IP_ADDRESS_OR_DOMAIN/$WEB_SERVER/g" /etc/nginx/sites-enabled/$WEB_SERVER.conf
-     - sed -i "s,/var/www/html/,/var/www/html/$GIT_APP_FOLDER/public,g" /etc/nginx/sites-enabled/$WEB_SERVER.conf
+    - sed -i "s,/var/www/html/,/var/www/html/$GIT_APP_FOLDER/public,g" /etc/nginx/sites-enabled/$WEB_SERVER.conf
 
     # Pull Glue Application from GitBucket
     - cd /var/www/html

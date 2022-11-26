@@ -5,7 +5,8 @@ phases:
 
  install:
   commands:
-
+    - mkdir cloudboost
+    - cd cloudboost
     - WORKDIR /cloudboost
     - COPY ./Entrypoint/* /cloudboost/
     - COPY ./NGINX/* /cloudboost/nginx/

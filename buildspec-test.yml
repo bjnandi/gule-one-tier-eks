@@ -60,15 +60,35 @@ phases:
     # Export Port 80 to access the web app
     #- EXPOSE 80/tcp
     
-    # Unit Test
-    - php artisan test
-    - composer require --dev codeception/codeception
+  
     
     #Larastan Test Report
     - composer require --dev phpstan/phpstan
     - vendor/bin/phpstan analyse bootstrap
     - vendor/bin/phpstan analyse public
     - vendor/bin/phpstan analyse stubs
+    
+    
+    	#Codeception Test
+    - composer require --dev codeception/codeception
+    - composer require codeception/module-phpbrowser --dev
+    - composer require codeception/module-asserts --dev
+    
+    
+    #Code Coverage Test
+    - vendor/bin/phpunit --coverage-html reports
+    - vendor/bin/phpunit --testsuite Feature
+    - vendor/bin/phpunit --coverage-html "reports/coverage"
+    
+      #PHPCS Test
+    - composer require --dev squizlabs/php_codesniffer
+    - vendor/bin/phpcs app database storage bootstrap
+    - vendor/bin/phpcbf app database storage bootstrap
+    
+     # Unit Test
+    - php artisan test
+    - composer require --dev codeception/codeception
+    - php artisan test --testsuite=Unit --stop-on-failure
     
     
 

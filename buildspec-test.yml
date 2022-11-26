@@ -81,8 +81,8 @@ phases:
     
       #PHPCS Test
     - composer require --dev squizlabs/php_codesniffer
-    - vendor/bin/phpcs app database storage bootstrap
-    - vendor/bin/phpcbf app database storage bootstrap
+    #- vendor/bin/phpcs app database storage bootstrap
+    #- vendor/bin/phpcbf app database storage bootstrap
     
      # Unit Test
     - php artisan test

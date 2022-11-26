@@ -67,9 +67,8 @@ phases:
     - vendor/bin/phpstan analyse bootstrap
     - vendor/bin/phpstan analyse public
     - vendor/bin/phpstan analyse stubs
-    
-    
-    	#Codeception Test
+
+    #Codeception Test
     - composer require --dev codeception/codeception
     - composer require codeception/module-phpbrowser --dev
     - composer require codeception/module-asserts --dev

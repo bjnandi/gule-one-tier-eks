@@ -10,9 +10,6 @@ phases:
     - COPY ./Entrypoint/* /cloudboost/
     - COPY ./NGINX/* /cloudboost/nginx/
 
-    - ENV TZ=Asia/Dhaka \
-        - DEBIAN_FRONTEND=noninteractive
-
     # Here we are going to install required packages for our Laravel Project
      - apt update -y; \
      - apt install lsb-release ca-certificates apt-transport-https software-properties-common curl unzip mysql-server git nginx -y --no-install-recommends; \

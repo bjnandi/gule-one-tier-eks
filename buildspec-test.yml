@@ -63,31 +63,30 @@ phases:
   
     
     #Larastan Test Report
-    - composer require --dev phpstan/phpstan
-    - vendor/bin/phpstan analyse bootstrap
-    - vendor/bin/phpstan analyse public
-    - vendor/bin/phpstan analyse stubs
+    #- vendor/bin/phpstan analyse bootstrap
+    #- vendor/bin/phpstan analyse public
+    #- vendor/bin/phpstan analyse stubs
 
     #Codeception Test
-    - composer require --dev codeception/codeception
-    - composer require codeception/module-phpbrowser --dev
-    - composer require codeception/module-asserts --dev
+    #- composer require --dev codeception/codeception
+    #- composer require codeception/module-phpbrowser --dev
+    #- composer require codeception/module-asserts --dev
     
     
     #Code Coverage Test
-    - vendor/bin/phpunit --coverage-html reports
-    - vendor/bin/phpunit --testsuite Feature
-    - vendor/bin/phpunit --coverage-html "reports/coverage"
+    #- vendor/bin/phpunit --coverage-html reports
+    #- vendor/bin/phpunit --testsuite Feature
+    #- vendor/bin/phpunit --coverage-html "reports/coverage"
     
       #PHPCS Test
-    - composer require --dev squizlabs/php_codesniffer
+    #- composer require --dev squizlabs/php_codesniffer
     #- vendor/bin/phpcs app database storage bootstrap
     #- vendor/bin/phpcbf app database storage bootstrap
     
      # Unit Test
     - php artisan test
     - composer require --dev codeception/codeception
-    - php artisan test --testsuite=Unit --stop-on-failure
+    - php artisan test --testsuite=Unit --stop-on-failure -f unit-test-json/pom.xml 
     
     
 
@@ -96,9 +95,20 @@ phases:
     #- ENTRYPOINT ["sh", "/cloudboost/startup.sh"]
      
      
+     
+ reports:
+ unit-test-report-group: #unit test reports
+   files:
+     - '**/*'
+   base-directory: 'unit-test-reports'
+   
+   
+   
  pre_build:
    commands:
     - echo Logging in to Amazon EKS...
+    
+
 
 
  build: # Build Docker image and tag it with the commit sha

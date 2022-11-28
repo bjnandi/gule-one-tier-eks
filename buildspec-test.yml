@@ -97,10 +97,10 @@ phases:
      
      
  reports:
- unit-test-report-group: #unit test reports
-   files:
-     - '**/*'
-   base-directory: 'unit-test-reports'
+  unit-test-report-group: #unit test reports
+    files:
+      - '**/*'
+    base-directory: 'unit-test-reports'
    
    
    

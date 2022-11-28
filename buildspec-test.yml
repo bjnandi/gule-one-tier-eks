@@ -86,7 +86,7 @@ phases:
      # Unit Test
     - php artisan test
     - composer require --dev codeception/codeception
-    - php artisan test --testsuite=Unit --stop-on-failure -f unit-test-json/pom.xml 
+    - php artisan test --testsuite=Unit --stop-on-failure -f unit-test.xml 
     
     
 
@@ -94,30 +94,15 @@ phases:
    # - RUN ["chmod", "+x", "/cloudboost/startup.sh"]
     #- ENTRYPOINT ["sh", "/cloudboost/startup.sh"]
      
-     
-     
- reports:
-  unit-test-report-group: #unit test reports
-    files:
-      - '**/*'
-    base-directory: 'unit-test-reports'
-   
-   
    
  pre_build:
    commands:
     - echo Logging in to Amazon EKS...
     
-
-
-
- build: # Build Docker image and tag it with the commit sha
-  commands:
-    - echo Build started on `date`
-    - echo Building the Docker image...
-
-
- post_build: # Push the Docker image to the ECR
-  commands:
-   - echo Build completed on `date`
-   - echo Pushing the Docker image...
+   
+reports:
+ pytest_reports:
+   files:
+     - unit-test.xml
+   base-directory: bj_reports/
+   file-format: JUNITXML

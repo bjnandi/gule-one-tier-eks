@@ -84,10 +84,10 @@ phases:
     #- vendor/bin/phpcbf app database storage bootstrap
     
      # Unit Test
-    - php artisan test
-    - composer require --dev codeception/codeception
-    - php artisan test --testsuite=Unit --stop-on-failure -f unit-test.xml 
-    
+    #- php artisan test
+    #- composer require --dev codeception/codeception
+    - php artisan test --junitxml= bj_reports/unit-test.xml 
+  
     
 
     # Run Scripts to start nginx, mysql, phpfpm automatically on container boot

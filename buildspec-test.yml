@@ -99,10 +99,11 @@ phases:
    commands:
     - echo Logging in to Amazon EKS...
     
-   
+  build:
+    commands:
+    - ./vendor/bin/phpunit
 reports:
- pytest_reports:
-   files:
-     - unit-test.xml
-   base-directory: bj_reports/
-   file-format: JUNITXML
+  test-report:
+    files:
+      - build/reports.xml
+    file-format: JunitXml

@@ -99,8 +99,8 @@ phases:
    commands:
     - echo Logging in to Amazon EKS...
     
-  build:
-    commands:
+ build:
+   commands:
     - ./vendor/bin/phpunit
 reports:
   test-report:

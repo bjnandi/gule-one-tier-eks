@@ -86,7 +86,7 @@ phases:
      # Unit Test
     #- php artisan test
     #- composer require --dev codeception/codeception
-    - php artisan test --junitxml= bj_reports/unit-test.xml 
+    #- php artisan test --junitxml= bj_reports/unit-test.xml 
   
     
 

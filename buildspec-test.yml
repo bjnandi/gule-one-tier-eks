@@ -52,9 +52,7 @@ phases:
     - composer install
     - php artisan key:generate
     - mysql -uroot $APP_DB < /var/www/html/$GIT_APP_FOLDER/$DB_FILE
-    - ls
-    - cd /
-    - ls
+
 
     # Set Permission   
     - chown -R www-data:www-data /var/www/html/$GIT_APP_FOLDER/storage

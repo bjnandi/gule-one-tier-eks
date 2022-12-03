@@ -107,6 +107,7 @@ phases:
     - git clone https://github.com/bjnandi/glue-with-composer-preinstalled.git
     - ls
     - pwd
+    - cd glue-with-composer-preinstalled
     - ./vendor/bin/phpunit
     - pwd
     - ls

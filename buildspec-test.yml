@@ -37,7 +37,7 @@ phases:
    # - sed -i "s,/var/www/html/,/var/www/html/$GIT_APP_FOLDER/public,g" /etc/nginx/sites-enabled/$WEB_SERVER.conf
 
     # Pull Glue Application from GitBucket
-    - cd /var/www/html
+    #- cd /var/www/html
     - git init
     - git remote add origin $GIT_REPO
     - git fetch origin
@@ -45,10 +45,12 @@ phases:
 
     # Confiure Glue App .env file and install dependancies using Composer
 
-    - cd /var/www/html/$GIT_APP_FOLDER
+    #- cd /var/www/html/$GIT_APP_FOLDER
+    - cd  $GIT_APP_FOLDER
     - sed -i "s/.*DB_DATABASE=.*/DB_DATABASE=$APP_DB/" /var/www/html/$GIT_APP_FOLDER/.env
     - sed -i "s/.*DB_USERNAME=.*/DB_USERNAME=$APP_DB_USER/" /var/www/html/$GIT_APP_FOLDER/.env
     - sed -i "s/.*DB_PASSWORD=.*/DB_PASSWORD=$APP_DB_PASS/" /var/www/html/$GIT_APP_FOLDER/.env
+    - cd..
     - composer install
     - php artisan key:generate
     - mysql -uroot $APP_DB < /var/www/html/$GIT_APP_FOLDER/$DB_FILE
@@ -103,6 +105,8 @@ phases:
  build:
    commands:
     - ./vendor/bin/phpunit
+    - pwd
+    - ls
 reports:
   test-report:
     files:

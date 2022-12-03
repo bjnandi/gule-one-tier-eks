@@ -104,10 +104,12 @@ phases:
     - ./vendor/bin/phpunit
     - ls
     - pwd
-    - cd /
-    - find . -name reports.xml
+    - cd 
+    - ls
+    - pwd
+    - find . -name reports
 reports:
   test-report:
     files:
-      - /var/www/html/build/reports.xml
+      - /var/www/html/build/$GIT_APP_FOLDER/reports.xml
     file-format: JunitXml

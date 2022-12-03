@@ -108,7 +108,7 @@ phases:
     - ls
     - pwd
     - cd glue-with-composer-preinstalled
-    - ./vendor/bin/phpunit
+    - sudo ./vendor/bin/phpunit
     - pwd
     - ls
 reports:

@@ -46,9 +46,9 @@ phases:
     # Confiure Glue App .env file and install dependancies using Composer
 
     #- cd /var/www/html/$GIT_APP_FOLDER
-    - sed -i "s/.*DB_DATABASE=.*/DB_DATABASE=$APP_DB/" /var/www/html/$GIT_APP_FOLDER/.env
-    - sed -i "s/.*DB_USERNAME=.*/DB_USERNAME=$APP_DB_USER/" /var/www/html/$GIT_APP_FOLDER/.env
-    - sed -i "s/.*DB_PASSWORD=.*/DB_PASSWORD=$APP_DB_PASS/" /var/www/html/$GIT_APP_FOLDER/.env
+    #- sed -i "s/.*DB_DATABASE=.*/DB_DATABASE=$APP_DB/" /var/www/html/$GIT_APP_FOLDER/.env
+   # - sed -i "s/.*DB_USERNAME=.*/DB_USERNAME=$APP_DB_USER/" /var/www/html/$GIT_APP_FOLDER/.env
+   # - sed -i "s/.*DB_PASSWORD=.*/DB_PASSWORD=$APP_DB_PASS/" /var/www/html/$GIT_APP_FOLDER/.env
     - composer install
     - php artisan key:generate
     - mysql -uroot $APP_DB < /var/www/html/$GIT_APP_FOLDER/$DB_FILE

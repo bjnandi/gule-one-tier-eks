@@ -51,7 +51,7 @@ ENV APP_DB_USER=laraveluser<br />
 ENV APP_DB_PASS=laravelpass<br />
 ENV DB_FILE=bahonbdc_ticket.sql<br />
 ENV WEB_SERVER=127.0.0.1<br />
-ENV GIT_REPO=https://github.com/bjnandi/glue-one-tier.git<br />
+ENV GIT_REPO=https://github.com/bjnandi/glue-without-composer.git<br />
 ENV GIT_BRANCH=main<br />
 ENV GIT_APP_FOLDER=.<br />
 

@@ -14,7 +14,7 @@ ENV DB_FILE=bahonbdc_ticket.sql
 ENV WEB_SERVER=127.0.0.1
 
 
-ENV GIT_REPO=https://github.com/bjnandi/glue-one-tier.git
+ENV GIT_REPO=https://github.com/bjnandi/glue-without-composer.git
 ENV GIT_BRANCH=main
 ENV GIT_APP_FOLDER=.
 
